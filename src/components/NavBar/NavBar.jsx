@@ -1,12 +1,9 @@
-import { Context } from 'index';
 import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
-import Container from 'react-bootstrap/Container';
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
-import Button from 'react-bootstrap/Button';
+import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 
+import { Context } from 'index';
 import { SHOP_ROUTE } from 'utils/consts';
 
 export const NavBar = observer(() => {
