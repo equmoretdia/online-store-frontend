@@ -11,6 +11,8 @@ export class DeviceStore {
     this._brands = [
       { id: 1, name: 'Apple' },
       { id: 2, name: 'Samsung' },
+      { id: 3, name: 'Lenovo' },
+      { id: 4, name: 'HP' },
     ];
     this._devices = [
       { id: 1, name: 'iPhone 14 Pro', price: 600, rating: 8, img: '' },
@@ -18,6 +20,7 @@ export class DeviceStore {
       { id: 1, name: 'MacBook Air 2024', price: 2800, rating: 7, img: '' },
     ];
     this._selectedType = {};
+    this._selectedBrand = {};
     makeAutoObservable(this);
   }
 
@@ -33,6 +36,9 @@ export class DeviceStore {
   setSelectedType(type) {
     this._selectedType = type;
   }
+  setSelectedBrand(brand) {
+    this._selectedBrand = brand;
+  }
 
   get types() {
     return this._types;
@@ -45,5 +51,8 @@ export class DeviceStore {
   }
   get selectedType() {
     return this._selectedType;
+  }
+  get selectedBrand() {
+    return this._selectedBrand;
   }
 }
