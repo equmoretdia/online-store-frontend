@@ -7,7 +7,6 @@ import { DEVICE_ROUTE } from 'utils/consts';
 
 export const DeviceItem = ({ device }) => {
   const navigate = useNavigate();
-  console.log(navigate);
 
   return (
     <Col

@@ -17,8 +17,8 @@ export const Auth = () => {
       <Card style={{ width: 600 }} className="p-5">
         <h2 className="m-auto">{isLogin ? 'Login' : 'Registration'}</h2>
         <Form className="d-flex flex-column">
-          <Form.Control className="mt-3" placeholder="Type your email..." />
-          <Form.Control className="mt-3" placeholder="Type your password..." />
+          <Form.Control className="mt-3" placeholder="Enter your email..." />
+          <Form.Control className="mt-3" placeholder="Enter your password..." />
           <div className="d-flex justify-content-between mt-3">
             {isLogin ? (
               <div className="p-2">

@@ -65,7 +65,6 @@ export const Device = () => {
               background: index % 2 === 0 ? 'lightgrey' : 'transparent',
               fontSize: 20,
               padding: 10,
-              // border: '5px solid lightgrey',
             }}
           >
             {info.title} : {info.description}
