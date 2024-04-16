@@ -16,8 +16,15 @@ export class DeviceStore {
     ];
     this._devices = [
       { id: 1, name: 'iPhone 14 Pro', price: 600, rating: 8, img: '' },
-      { id: 1, name: 'ProBook 450', price: 1500, rating: 6, img: '' },
-      { id: 1, name: 'MacBook Air 2024', price: 2800, rating: 7, img: '' },
+      { id: 2, name: 'ProBook 450', price: 1500, rating: 6, img: '' },
+      { id: 3, name: 'MacBook Air 2024', price: 2800, rating: 7, img: '' },
+      {
+        id: 4,
+        name: 'RS68A8540B1 EF',
+        price: 1400,
+        rating: 7,
+        img: '',
+      },
     ];
     this._selectedType = {};
     this._selectedBrand = {};
