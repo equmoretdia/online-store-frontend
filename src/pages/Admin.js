@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, Container } from 'react-bootstrap';
 
 import { ModalType } from 'components/ModalType/ModalType';
+import { ModalBrand } from 'components/ModalBrand/ModalBrand';
 
 export const Admin = () => {
   return (
@@ -15,8 +16,8 @@ export const Admin = () => {
       <Button variant={'outline-dark'} className="mt-4 p-2">
         Add device
       </Button>
-      {/* <ModalBrand /> */}
-      <ModalType show={true} />
+      <ModalBrand show={false} />
+      <ModalType show={false} />
       {/* <ModalDevice/> */}
     </Container>
   );
