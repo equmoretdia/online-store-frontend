@@ -1,24 +1,34 @@
-import React, { useState } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import React, { useState, useContext } from 'react';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { observer } from 'mobx-react-lite';
 import { Button, Card, Container, Form } from 'react-bootstrap';
 
-import { LOGIN_ROUTE, REGISTRATION_ROUTE } from 'utils/consts';
+import { LOGIN_ROUTE, REGISTRATION_ROUTE, SHOP_ROUTE } from 'utils/consts';
 import { registration, login } from 'http/userAPI';
+import { Context } from 'index';
 
-export const Auth = () => {
+export const Auth = observer(() => {
+  const { user } = useContext(Context);
   const location = useLocation();
+  const navigate = useNavigate();
   // console.log(location);
   const isLogin = location.pathname === LOGIN_ROUTE;
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const auth = async () => {
-    if (isLogin) {
-      const response = await login(email, password);
-      console.log(response);
-    } else {
-      const response = await registration(email, password);
-      console.log(response);
+    try {
+      let userData;
+      if (isLogin) {
+        userData = await login(email, password);
+      } else {
+        userData = await registration(email, password);
+      }
+      user.setUser(userData);
+      user.setIsAuth(true);
+      navigate(SHOP_ROUTE);
+    } catch (error) {
+      alert(error.response.data.message);
     }
   };
 
@@ -64,4 +74,4 @@ export const Auth = () => {
       </Card>
     </Container>
   );
-};
+});
