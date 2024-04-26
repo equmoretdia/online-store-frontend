@@ -4,7 +4,7 @@ import { observer } from 'mobx-react-lite';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 
 import { Context } from 'index';
-import { ADMIN_ROUTE, BASKET_ROUTE, SHOP_ROUTE } from 'utils/consts';
+import { ADMIN_ROUTE, REGISTRATION_ROUTE, SHOP_ROUTE } from 'utils/consts';
 
 export const NavBar = observer(() => {
   const { user } = useContext(Context);
@@ -26,9 +26,9 @@ export const NavBar = observer(() => {
             </Button>
             <Button
               variant={'outline-light'}
-              onClick={() => navigate(BASKET_ROUTE)}
+              onClick={() => navigate(REGISTRATION_ROUTE)}
             >
-              Basket
+              Quit
             </Button>
           </Nav>
         ) : (
