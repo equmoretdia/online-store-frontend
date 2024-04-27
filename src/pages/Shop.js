@@ -6,13 +6,14 @@ import { TypeBar } from 'components/TypeBar/TypeBar';
 import { BrandBar } from 'components/BrandBar/BrandBar';
 import { DeviceList } from 'components/DeviceList/DeviceList';
 import { Context } from 'index';
-import { getAllTypes } from 'http/deviceAPI';
+import { getAllTypes, getAllBrands } from 'http/deviceAPI';
 
 export const Shop = observer(() => {
   const { device } = useContext(Context);
 
   useEffect(() => {
     getAllTypes().then(data => device.setTypes(data));
+    getAllBrands().then(data => device.setBrands(data));
   }, [device]);
 
   return (

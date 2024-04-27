@@ -9,10 +9,10 @@ export class DeviceStore {
       // { id: 4, name: 'Displays' },
     ];
     this._brands = [
-      { id: 1, name: 'Apple' },
-      { id: 2, name: 'Samsung' },
-      { id: 3, name: 'Lenovo' },
-      { id: 4, name: 'HP' },
+      // { id: 1, name: 'Apple' },
+      // { id: 2, name: 'Samsung' },
+      // { id: 3, name: 'Lenovo' },
+      // { id: 4, name: 'HP' },
     ];
     this._devices = [
       { id: 1, name: 'iPhone 14 Pro', price: 600, rating: 8, img: '' },
