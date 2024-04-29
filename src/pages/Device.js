@@ -1,28 +1,43 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { Button, Card, Container, Col, Image, Row } from 'react-bootstrap';
 
+import { getOneDevice } from 'http/deviceAPI';
 import star from 'assets/big-star.png';
 
 export const Device = () => {
-  const device = {
-    id: 1,
-    name: 'iPhone 14 Pro',
-    price: 600,
-    rating: 8,
-    img: '',
-  };
-  const description = [
-    { id: 1, title: 'Memory', description: '10GB' },
-    { id: 2, title: 'Camera', description: '16MP' },
-    { id: 3, title: 'Processor', description: 'Pentium 4' },
-    { id: 4, title: 'Core number', description: '6' },
-    { id: 5, title: 'Battery', description: '4000mAh' },
-  ];
+  const BASE_URL = 'http://localhost:5000/';
+
+  const [device, setDevice] = useState({ info: [] });
+
+  const { id } = useParams();
+  // console.log(params);
+  // console.log(id);
+
+  useEffect(() => {
+    getOneDevice(id).then(data => setDevice(data));
+  }, [id]);
+
+  // const device = {
+  //   id: 1,
+  //   name: 'iPhone 14 Pro',
+  //   price: 600,
+  //   rating: 8,
+  //   img: '',
+  // };
+  // const description = [
+  //   { id: 1, title: 'Memory', description: '10GB' },
+  //   { id: 2, title: 'Camera', description: '16MP' },
+  //   { id: 3, title: 'Processor', description: 'Pentium 4' },
+  //   { id: 4, title: 'Core number', description: '6' },
+  //   { id: 5, title: 'Battery', description: '4000mAh' },
+  // ];
+
   return (
     <Container className="mt-3">
       <Row>
         <Col md={4}>
-          <Image width={300} height={300} src={device.img} />
+          <Image width={300} height={300} src={BASE_URL + device.img} />
         </Col>
         <Col md={4}>
           <Row className="d-flex align-items-center flex-column">
@@ -58,7 +73,7 @@ export const Device = () => {
       </Row>
       <Row className="d-flex flex-column m-3">
         <h1>Product details</h1>
-        {description.map((info, index) => (
+        {device.info.map((info, index) => (
           <Row
             key={info.id}
             style={{
