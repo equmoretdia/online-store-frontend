@@ -45,8 +45,8 @@ export const ModalDevice = observer(({ show, onHide }) => {
     formData.append('brandId', device.selectedBrand.id);
     formData.append('typeId', device.selectedType.id);
     formData.append('img', file);
-    // formData.append('info', JSON.stringify(info));
-    createDevice();
+    formData.append('info', JSON.stringify(info));
+    createDevice(formData).then(data => onHide());
   };
 
   return (
