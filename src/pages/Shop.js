@@ -15,8 +15,16 @@ export const Shop = observer(() => {
   useEffect(() => {
     getAllTypes().then(data => device.setTypes(data));
     getAllBrands().then(data => device.setBrands(data));
-    getAllDevices().then(data => device.setDevices(data.rows));
-  }, [device]);
+    getAllDevices(
+      device.selectedBrand.id,
+      device.selectedType.id,
+      3,
+      device.page
+    ).then(data => {
+      device.setDevices(data.rows);
+      device.setTotalCount(data.count);
+    });
+  }, [device.selectedBrand, device.selectedType, device.page, device]);
 
   return (
     <Container>
